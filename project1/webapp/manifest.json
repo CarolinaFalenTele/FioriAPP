@@ -113,12 +113,23 @@
                     "target": [
                         "TargetMainView"
                     ]
+                },
+                {
+                    "pattern": "Tile",
+                    "name": "Tile",
+                    "target": "Tile"
                 }
             ],
             "targets": {
                 "TargetMainView": {
                     "id": "MainView",
                     "name": "MainView"
+                },
+                "Tile": {
+                    "id": "Tile",
+                    "name": "Tile",
+                    "viewName": "Tile",
+                    "viewType": "XML"
                 }
             }
         },

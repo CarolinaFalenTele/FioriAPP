@@ -12,7 +12,7 @@
         <headerTitle>
             <ObjectPageHeader
                 id="hid"
-                objectTitle="Fiori sample"
+                objectTitle="Querys APP "
                 class="customTextColor"
             />
         </headerTitle>
@@ -21,7 +21,7 @@
             <m:ObjectAttribute
                 id="g"
                 title=""
-                text="Ejemplo de tiles "
+                text="Lista de Querys "
             />
         </headerContent>
 
@@ -29,7 +29,7 @@
             <ObjectPageSection
                 id="ghjs"
                 titleUppercase="false"
-                title="Query 1"
+                title="Tabla ZPIFA_SRV"
             >
                 <subSections>
                     <ObjectPageSubSection
@@ -45,8 +45,8 @@
                                 class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
                                 header="Lista Productos"
                                 subheader="Listado de destinations"
-                                press="press"
-                                url="https://www.sap.com/"
+                                press="onTilePress"
+                                url="https://telefonica-global-technology--s-a--ia-test-l358blr2-spa25955da0.cfapps.eu10-004.hana.ondemand.com"
                             >
                                 <m:tileContent>
                                     <m:TileContent
@@ -68,7 +68,7 @@
                                 class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
                                 header="Lista moviles"
                                 subheader="Listado de destination"
-                                press="press"
+                                press="onTilePress1"
                                 url="https://www.sap.com/"
                             >
                                 <m:tileContent>
@@ -92,7 +92,7 @@
                                 class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
                                 header="Prueba"
                                 subheader="Link tile"
-                                press="press"
+                                press="onTilePress2"
                                 url="https://www.sap.com/"
                             >
                                 <m:tileContent>
@@ -114,7 +114,7 @@
                     </ObjectPageSubSection>
                     <ObjectPageSubSection
                         id="ghjcs"
-                        title="Destination 2"
+                        title="Lista  Moviles"
                         titleUppercase="false"
                     >
                         <layout:HorizontalLayout id="layout2585">
@@ -158,7 +158,7 @@
             <ObjectPageSection
                 id="gshjs"
                 titleUppercase="false"
-                title="Query 2"
+                title="Tabla ZTNM_STOCK_PLAN_ENTREGAS_SRV"
               >
                 <subSections>
                     <ObjectPageSubSection

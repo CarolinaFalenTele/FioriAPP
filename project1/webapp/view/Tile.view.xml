@@ -1,0 +1,114 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    controllerName="wb.project1.controller.App"
+    displayBlock="true"
+>
+    <Page
+        xmlns="sap.m"
+        id="pageId"
+        title="Lista Contratos VIEW "
+        floatingFooter="true"
+    >
+        <headerContent>
+            <Button
+                icon="sap-icon://action"
+                tooltip="Share"
+                id="button2"
+            />
+        </headerContent>
+
+                        <Table
+                            id="table"
+                            inset="false"
+                            items="{ path: 'secondService>/ZPIFA(A0CIIM_CALMONTH=\'12.2024\',A0CIIM_CALMONTHTo=\'12.2024\',A0CISO_RECONTRACT=\'\',A0CISO_RECONTRACTTo=\'\',A0CISO_CONTRTYPE=\'\',A0CISO_CONTRTYPETo=\'\',A0CISO_RECDTYPE=\'\',A0CISO_RECDTYPETo=\'\',ZVAR_M_COMP_CODE=\'\')/Results' }"
+                        >
+                            <columns>
+                                <Column
+                                    id="columnId1"
+                                    minScreenWidth="Tablet"
+                                    demandPopin="true"
+                                >
+                                    <Text
+                                        id="textId1"
+                                        text="ID"
+                                    />
+                                </Column>
+                                <Column
+                                    id="columnId2"
+                                    minScreenWidth="Tablet"
+                                    demandPopin="true"
+                                >
+                                    <Text
+                                        id="textId2"
+                                        text="Contract"
+                                    />
+                                </Column>
+                                      <Column
+                                    id="columnId23"
+                                    minScreenWidth="Tablet"
+                                    demandPopin="true"
+                                >
+                                    <Text
+                                        id="textId23"
+                                        text="ConditionType"
+                                    />
+                                </Column>
+                                <Column
+                                    id="columnId3"
+                                    minScreenWidth="Tablet"
+                                    demandPopin="true"
+                                >
+                                    <Text
+                                        id="textId3"
+                                        text="RealEstateObject"
+                                    />
+                                </Column>
+                                <Column
+                                    id="columnId4"
+                                    minScreenWidth="Tablet"
+                                    demandPopin="true"
+                                >
+                                    <Text
+                                        id="textId4"
+                                        text="ConditionPurpose  "
+                                    />
+                                </Column>
+                            </columns>
+
+                            <items>
+                                <ColumnListItem
+                                    id="columnListItem1"
+                                    vAlign="Middle"
+                                >
+                                    <cells>
+                                        <ObjectIdentifier
+                                            id="objId1"
+                                            title="{secondService>A0COMP_CODE}"
+                                        />
+                                         <Text
+                                            id="text12"
+                                            text="{secondService>A0RECONTRACT}"
+                                        />
+                                        <Text
+                                            id="text1"
+                                            text="{secondService>ZRE_CCTYP}"
+                                        />
+                                        <Text
+                                            id="text2"
+                                            text="{secondService>A0REOBJECT_T}"
+                                        />
+                                        <Text
+                                            id="text3"
+                                            text="{secondService>A0CONDPURP_T}"
+                                        />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+
+        
+
+        <content />
+    </Page>
+</mvc:View>
