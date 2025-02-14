@@ -10,17 +10,29 @@ server:
       afterMiddleware: compression
       configuration:
         ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        backend:
+        - path: /sap
+          url: http://tehsu161.serv.dev.dc.es.telefonica:443
+          destination: destination_test
+        
+        
+        
         ui5:
           path:
             - /resources
             - /test-resources
           url: https://ui5.sap.com
+
+
+          
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
         port: 35729
         path: webapp
         delay: 300
+
+        
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:

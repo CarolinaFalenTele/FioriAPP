@@ -10,6 +10,24 @@
         "title": "{{appTitle}}",
         "description": "{{appDescription}}",
         "resources": "resources.json",
+        "ach": "ach",
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/ZTNM_STOCK_PLAN_ENTREGAS_SRV",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/metadata.xml"
+                }
+            },
+            "secondService": {
+                "uri": "/sap/opu/odata/sap/ZPIFA_SRV",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            }
+        },
         "sourceTemplate": {
             "id": "@sap/generator-fiori:basic",
             "version": "1.16.3",
@@ -50,6 +68,22 @@
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
                     "bundleName": "wb.project1.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true
+            },
+            "mainService": {
+                "dataSource": "mainService",
+                "settings": {
+                    "defaultBindingMode": "TwoWay"
+                }
+            },
+            "secondService": {
+                "dataSource": "secondService",
+                "settings": {
+                    "defaultBindingMode": "TwoWay"
                 }
             }
         },

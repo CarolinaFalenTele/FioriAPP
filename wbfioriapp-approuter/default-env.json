@@ -1,0 +1,17 @@
+{
+  
+    "destination": [
+        {
+          "name": "destination_test",
+          "credentials": {
+            "url": "tehsu161.serv.dev.dc.es.telefonica:443",
+            "type": "HTTP",
+            "authentication": "BasicAuthentication",
+            "proxyType": "OnPremise",
+            "locationId": "ia",
+            "username": "IA_TEST",
+          "password": "Acceso123+ab"
+          }
+        }
+      ]
+}

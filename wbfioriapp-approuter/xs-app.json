@@ -1,4 +1,25 @@
 {
   "authenticationMethod": "none",
-  "routes": []
-}
+  "welcomeFile": "/wbproject1",
+  "routes": [
+    {
+      "source": "^/sap/opu/odata/sap/ZTNM_STOCK_PLAN_ENTREGAS_SRV/(.*)$",
+      "target": "$1",
+      "destination": "destination_test",
+      "csrfProtection": true,
+      "authenticationType": "none"
+    },
+    {
+      "source": "^/sap/opu/odata/sap/ZPIFA_SRV/(.*)$",
+      "target": "$1",
+      "destination": "destination_test",
+      "csrfProtection": true,
+      "authenticationType": "none"
+    },
+    {
+      "source": "^(.*)$",
+      "target": "$1",
+      "service": "html5-apps-repo-rt",
+      "authenticationType": "xsuaa"
+    }
+  ]}

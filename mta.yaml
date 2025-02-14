@@ -8,15 +8,16 @@ modules:
   requires:
   - name: wbfioriapp_html_repo_runtime
   - name: uaa_wbfioriapp
-  - name: wbfioriapp-destination-service
-    group: destinations
-    properties:
-      forwardAuthToken: false
-      name: ui5
-      url: https://ui5.sap.com
+  - name: dest_wbfioriapp
+  - name: conn_wbfioriapp
   parameters:
-    disk-quota: 256M
-    memory: 256M
+      disk-quota: 512M
+      memory: 512M
+
+
+
+
+
 - name: wbfioriapp_ui_deployer
   type: com.sap.application.content
   path: .
@@ -31,6 +32,9 @@ modules:
       - wbproject1.zip
       name: wbproject1
       target-path: resources/
+
+
+
 - name: wbproject1
   type: html5
   path: project1
@@ -41,12 +45,17 @@ modules:
     - npm install
     - npm run build:cf
     supported-platforms: []
+
+
+
 resources:
 - name: wbfioriapp_html_repo_runtime
   type: org.cloudfoundry.managed-service
   parameters:
     service: html5-apps-repo
     service-plan: app-runtime
+
+
 - name: uaa_wbfioriapp
   type: org.cloudfoundry.managed-service
   parameters:
@@ -54,29 +63,30 @@ resources:
     service: xsuaa
     service-name: wbfioriapp-xsuaa-service
     service-plan: application
+
+
+
 - name: wbfioriapp_html_repo_host
   type: org.cloudfoundry.managed-service
   parameters:
     service: html5-apps-repo
     service-plan: app-host
-- name: wbfioriapp-destination-service
+
+
+
+- name: dest_wbfioriapp
   type: org.cloudfoundry.managed-service
   parameters:
-    config:
-      HTML5Runtime_enabled: false
-      init_data:
-        instance:
-          destinations:
-          - Authentication: NoAuthentication
-            Name: ui5
-            ProxyType: Internet
-            Type: HTTP
-            URL: https://ui5.sap.com
-          existing_destinations_policy: update
-      version: 1.0.0
     service: destination
-    service-name: wbfioriapp-destination-service
     service-plan: lite
+
+- name: conn_wbfioriapp
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: connectivity
+    service-plan: lite
+
+
 parameters:
   deploy_mode: html5-repo
-  enable-parallel-deployments: true
+  

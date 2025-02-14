@@ -3,8 +3,8 @@
   "authenticationMethod": "route",
   "routes": [
     {
-      "source": "^undefined/(.*)$",
-      "target": "undefined/$1",
+      "source": "^/sap/(.*)$",
+      "target": "/sap/$1",
       "destination": "destination_test",
       "authenticationType": "xsuaa",
       "csrfProtection": false
