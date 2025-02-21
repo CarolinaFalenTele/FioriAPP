@@ -1,16 +1,9 @@
 {
-  "authenticationMethod": "none",
+  "authenticationMethod": "route",
   "welcomeFile": "/wbproject1",
   "routes": [
     {
-      "source": "^/sap/opu/odata/sap/ZTNM_STOCK_PLAN_ENTREGAS_SRV/(.*)$",
-      "target": "$1",
-      "destination": "destination_test",
-      "csrfProtection": true,
-      "authenticationType": "none"
-    },
-    {
-      "source": "^/sap/opu/odata/sap/ZPIFA_SRV/(.*)$",
+      "source": "^/sap/opu/odata/sap/ZFIORI_SECC_SRV(.*)$",
       "target": "$1",
       "destination": "destination_test",
       "csrfProtection": true,

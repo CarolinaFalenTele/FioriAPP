@@ -13,18 +13,11 @@
         "ach": "ach",
         "dataSources": {
             "mainService": {
-                "uri": "/sap/opu/odata/sap/ZTNM_STOCK_PLAN_ENTREGAS_SRV",
+                "uri": "/sap/opu/odata/sap/ZFIORI_SECC_SRV",
                 "type": "OData",
                 "settings": {
                     "odataVersion": "2.0",
                     "localUri": "localService/metadata.xml"
-                }
-            },
-            "secondService": {
-                "uri": "/sap/opu/odata/sap/ZPIFA_SRV",
-                "type": "OData",
-                "settings": {
-                    "odataVersion": "2.0"
                 }
             }
         },
@@ -76,12 +69,6 @@
             },
             "mainService": {
                 "dataSource": "mainService",
-                "settings": {
-                    "defaultBindingMode": "TwoWay"
-                }
-            },
-            "secondService": {
-                "dataSource": "secondService",
                 "settings": {
                     "defaultBindingMode": "TwoWay"
                 }

@@ -31,10 +31,17 @@ sap.ui.define([
         
 
         onTilePress2: function () {
-            // Navegar a otra vista
+           
             this.getOwnerComponent().getRouter().navTo("Tile");
-        }
+        },
         
-        
+        prueba: function() {
+            var sTransactionCode = "ZTU_TRANSACCION"; // Reemplaza con tu código de transacción
+            var sUrl = "/sap/bc/gui/sap/its/webgui?~transaction=" + sTransactionCode;
+            sap.m.URLHelper.redirect(sUrl, true);
+          }
+          
+
+
     });
 });
