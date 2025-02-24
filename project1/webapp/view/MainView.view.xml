@@ -8,6 +8,7 @@
     <ObjectPageLayout
         id="ObjectPageLayout"
         upperCaseAnchorBar="false"
+        sections="{sectionModel>/Sections}"
     >
         <headerTitle>
             <ObjectPageHeader
@@ -27,285 +28,42 @@
 
         <sections>
             <ObjectPageSection
-                id="ghjs"
+                id="sectionTiles"
                 titleUppercase="false"
-                title="Tabla ZPIFA_SRV"
+                title="{sectionModel>SectionName}"
             >
                 <subSections>
                     <ObjectPageSubSection
-                        id="ghgjs"
-                        title="Lista de Contratos"
+                        id="subSectionTiles"
                         titleUppercase="false"
-                        class="customTextColor"
-
+                        title="{sectionModel>subSections/title}"
                     >
-                        <layout:HorizontalLayout id="layout2">
-                            <m:GenericTile
-                                id="tile1"
-                                class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
-                                header="Lista Productos"
-                                subheader="Listado de destinations"
-                                press="onTilePress"
-                                url="https://telefonica-global-technology--s-a--ia-test-l358blr2-spa25955da0.cfapps.eu10-004.hana.ondemand.com"
-                            >
-                                <m:tileContent>
-                                    <m:TileContent
-                                        id="p5e"
-                                        unit=""
-                                        footer=""
-                                    >
-                                        <m:content>
-                                            <m:ImageContent
-                                                id="pe5h"
-                                                src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg"
-                                            />
-                                        </m:content>
-                                    </m:TileContent>
-                                </m:tileContent>
-                            </m:GenericTile>
-                            <m:GenericTile
-                                id="tile51"
-                                class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
-                                header="Lista moviles"
-                                subheader="Listado de destination"
-                                press="onTilePress1"
-                                url="https://www.sap.com/"
-                            >
-                                <m:tileContent>
-                                    <m:TileContent
-                                        id="in"
-                                        unit=""
-                                        footer=""
-                                    >
-                                        <m:content>
-                                            <m:ImageContent
-                                                id="apre"
-                                                src="sap-icon://SAP-icons-TNT/fiori-application"
-                                            />
-                                        </m:content>
-                                    </m:TileContent>
-                                </m:tileContent>
-                            </m:GenericTile>
-
-                            <m:GenericTile
-                                id="tile15"
-                                class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
-                                header="Prueba"
-                                subheader="Link tile"
-                                press="onTilePress2"
-                                url="https://www.sap.com/"
-                            >
-                                <m:tileContent>
-                                    <m:TileContent
-                                        id="pe"
-                                        unit=""
-                                        footer=""
-                                    >
-                                        <m:content>
-                                            <m:ImageContent
-                                                id="pe5"
-                                                src="sap-icon://home-share"
-                                            />
-                                        </m:content>
-                                    </m:TileContent>
-                                </m:tileContent>
-                            </m:GenericTile>
-                        </layout:HorizontalLayout>
-                    </ObjectPageSubSection>
-                    <ObjectPageSubSection
-                        id="ghjcs"
-                        title="Lista  Moviles"
-                        titleUppercase="false"
-                    >
-                        <layout:HorizontalLayout id="layout2585">
-                            <m:GenericTile
-                                id="tile541"
-                                class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
-                                header="Pruebas"
-                                subheader="Link tile"
-                                press="press"
-                                url="https://www.sap.com/"
-                            />
-
-                            <m:GenericTile
-                                id="tile415"
-                                class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
-                                header="Listas"
-                                subheader="Link tile"
-                                press="press"
-                                url="https://www.sap.com/"
-                            >
-                                <m:tileContent>
-                                    <m:TileContent
-                                        id="tasd"
-                                        unit=""
-                                        footer=""
-                                    >
-                                        <m:content>
-                                            <m:ImageContent
-                                                id="espe"
-                                                src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg"
-                                            />
-                                        </m:content>
-                                    </m:TileContent>
-                                </m:tileContent>
-                            </m:GenericTile>
-                        </layout:HorizontalLayout>
-                    </ObjectPageSubSection>
-                </subSections>
-            </ObjectPageSection>
-
-            <ObjectPageSection
-                id="gshjs"
-                titleUppercase="false"
-                title="Tabla ZTNM_STOCK_PLAN_ENTREGAS_SRV"
-              >
-                <subSections>
-                    <ObjectPageSubSection
-                        id="tert"
-                        titleUppercase="false"
-                    >
-    
-                    <m:GenericTile
-                                id="tile5515"
-                                class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
-                                header="Prueba"
-                                subheader="Link tile"
-                                press="press"
-                                url="https://www.sap.com/"
-                            >
-                                <m:tileContent>
-                                    <m:TileContent
-                                        id="pyhuye"
-                                        unit=""
-                                        footer=""
-                                    >
-                                        <m:content>
-                                            <m:ImageContent
-                                                id="pegfyty5"
-                                                src="sap-icon://home-share"
-                                            />
-                                        </m:content>
-                                    </m:TileContent>
-                                </m:tileContent>
-                            </m:GenericTile>
-
-
-                    </ObjectPageSubSection>
-                </subSections>
-            </ObjectPageSection>
-
-            <ObjectPageSection
-                id="g3whjs"
-                titleUppercase="false"
-                title="Destination 3"
-            >
-                <subSections>
-
-
-                    <ObjectPageSubSection
-                        id="ghjss"
-                        titleUppercase="false"
-                    >
-                 <layout:HorizontalLayout id="layout85">
-
-                   <m:GenericTile
-                        id="tile123"
-                        class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
-                        header="Listas"
-                        subheader="Example Subheader"
-                        press="press"
-                        url="https://www.sap.com/"
-                    >
-                        <m:tileContent>
-                            <m:TileContent
-                                id="exampleTileContent"
-                                unit=""
-                                footer=""
-                            >
-                                <m:content>
-                                    <m:ImageContent
-                                        id="exampleImage"
-                                        src="sap-icon://example-icon"
-                                    />
-                                </m:content>
-                            </m:TileContent>
-                        </m:tileContent>
-                    </m:GenericTile>
-                    <m:GenericTile
-                        id="tile456"
-                        class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
-                        header="Listas"
-                        subheader="Another Subheader"
-                        press="press"
-                        url="https://www.sap.com/"
-                    >
-                        <m:tileContent>
-                            <m:TileContent
-                                id="anotherTileContent"
-                                unit=""
-                                footer=""
-                            >
-                                <m:content>
-                                    <m:ImageContent
-                                        id="anotherImage"
-                                        src="sap-icon://another-icon"
-                                    />
-                                </m:content>
-                            </m:TileContent>
-                        </m:tileContent>
-                    </m:GenericTile>
-                    </layout:HorizontalLayout>
-                    </ObjectPageSubSection>
-                </subSections>
-            </ObjectPageSection>
-
-            <ObjectPageSection id="ghjssss">
-                <subSections>
-                    <ObjectPageSubSection
-                        id="ghsssjs"
-                        title="Query table Z "
-                        titleUppercase="false"
-                    >
-                      <layout:HorizontalLayout id="pasa">
-                     <m:GenericTile
-                                id="Anrig"
-                                class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
-                                header="Pruebas"
-                                subheader="Link tile"
-                                press="press"
-                                url="https://www.sap.com/"
-                            />
-
                     
-                    </layout:HorizontalLayout>
-
-
-                    </ObjectPageSubSection>
-                </subSections>
-            </ObjectPageSection>
-
-            <ObjectPageSection
-                id="ghmnjusjs"
-                titleUppercase="false"
-                title="Query Tabla D"
-            >
-                <subSections>
-                    <ObjectPageSubSection
-                        id="ghjse"
-                        titleUppercase="false"
+                     <m:VBox  id="mkfdlkgfmn"
+                    items="{sectionModel>Tiles}" >
+                    <m:GenericTile   id="ghjfhfghfdh" 
+                        class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                        header="{sectionModel>TileName}"
+                        subheader="{sectionModel>QueryString}"
+                        press="onTilePress"  
+                        url="{sectionModel>QueryString}"  
                     >
-                        
-                        <layout:HorizontalLayout id="layoutQueryTablaD">
-                            <m:GenericTile
-                                id="tileQueryD"
-                                class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
-                                header="Query Tabla D"
-                                subheader="Link tile"
-                                press="press"
-                                url="https://www.sap.com/"
-                            />
-                        </layout:HorizontalLayout>
+                        <m:tileContent>
+                            <m:TileContent
+                                id="fghfgh"  
+                                unit=""
+                                footer=""
+                            >
+                                <m:content>
+                                    <m:ImageContent
+                                        id="idttyry"  
+                                        src="sap-icon://home-share"
+                                    />
+                                </m:content>
+                            </m:TileContent>
+                        </m:tileContent>
+                    </m:GenericTile>
+                </m:VBox>
                     </ObjectPageSubSection>
                 </subSections>
             </ObjectPageSection>

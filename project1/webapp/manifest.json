@@ -16,8 +16,8 @@
                 "uri": "/sap/opu/odata/sap/ZFIORI_SECC_SRV",
                 "type": "OData",
                 "settings": {
-                    "odataVersion": "2.0",
-                    "localUri": "localService/metadata.xml"
+                    "odataVersion": "2.0"
+                   
                 }
             }
         },
@@ -49,7 +49,8 @@
             "minUI5Version": "1.132.1",
             "libs": {
                 "sap.m": {},
-                "sap.ui.core": {}
+                "sap.ui.core": {},
+                "sap.uxap": {}
             }
         },
         "contentDensities": {
