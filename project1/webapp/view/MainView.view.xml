@@ -40,17 +40,19 @@
                     titleUppercase="false"
                     title="{sectionModel>SectionName}"
                 >
-                    <m:VBox
-                        id="vboxTiles"
-                        items="{sectionModel>Tiles}"
-                    >
+                   <m:HBox id="ef" wrap="Wrap" justifyContent="Start" items="{sectionModel>Tiles}">
                         <m:GenericTile id="hoddl"
                             class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
                             header="{sectionModel>TileName}"
                             subheader="{sectionModel>QueryString}"
                             press="onTilePress"
+                             url="/sap/bc/ui5_ui5/sap/FLP?sap-client=500#{sectionModel>QueryString}"
                            
-                        >
+                             >
+                           
+                         <m:customData>
+                            <core:CustomData key="query" value="{sectionModel>QueryString}" />
+                        </m:customData>
 
 
                             <m:tileContent>
@@ -63,7 +65,7 @@
                                 </m:TileContent>
                             </m:tileContent>
                         </m:GenericTile>
-                    </m:VBox>
+                    </m:HBox>
                 </ObjectPageSubSection>
             </subSections>
             </ObjectPageSection>
