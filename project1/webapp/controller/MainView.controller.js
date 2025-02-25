@@ -16,7 +16,56 @@ sap.ui.define([
      var oSectionModel = new sap.ui.model.json.JSONModel({ Sections: [] });
      this.getView().setModel(oSectionModel, "sectionModel");
  
-     this.loadSections(); // Llamar al método para cargar las secciones
+     var oModel = new sap.ui.model.json.JSONModel();
+     var that = this;
+     var oDataModel = this.getOwnerComponent().getModel();
+     var aSections = [];
+     var oSectionsMap = {};
+ 
+     // Obtener las SECCIONES con sus nombres
+     oDataModel.read("/SD_HEADERSet", {
+         success: function (oData) {
+             oData.results.forEach(function (oSection) {
+                 var sIdSection = oSection.Id;
+                 oSectionsMap[sIdSection] = {
+                     IdSection: sIdSection,
+                     SectionName: oSection.SectionName, // Aquí guardamos el nombre correcto
+                     Tiles: []
+                 };
+                 aSections.push(oSectionsMap[sIdSection]);
+             });
+ 
+             // Obtener los TILES y asignarlos a la sección correcta
+             oDataModel.read("/SD_TILESSet", {
+                 success: function (oTileData) {
+                     oTileData.results.forEach(function (oTile) {
+                         var sIdSection = oTile.IdSection;
+                         if (oSectionsMap[sIdSection]) {
+                             oSectionsMap[sIdSection].Tiles.push({
+                                 TileName: oTile.TileName,
+                                 QueryString: oTile.QueryString
+                             });
+                         }
+                     });
+ 
+                     // Asignar datos al modelo y vincular a la vista
+                     oModel.setData({ Sections: aSections });
+                     that.getView().setModel(oModel, "sectionModel");
+                 },
+                 error: function (oError) {
+                     console.error("Error al cargar los tiles", oError);
+                 }
+             });
+         },
+         error: function (oError) {
+             console.error("Error al cargar las secciones", oError);
+         }
+  
+     });
+
+
+
+   //  this.loadSections(); // Llamar al método para cargar las secciones
         },
 
       
@@ -26,33 +75,31 @@ sap.ui.define([
                 "odataVersion": "2.0"
             });
             this.getView().setModel(oModel, "mainService");
-        
+    
             oModel.read("/SD_HEADERSet", {
                 success: function (oData) {
                     if (oData && oData.results) {
                         var aSections = [];
-        
-                        // Para cada sección obtenida, cargar los tiles relacionados
-                        var oTilePromises = oData.results.map((section) => {
-                            return new Promise((resolve, reject) => {
-                                this.loadTiles(section.Id).then((tiles) => {
-                                    aSections.push({
-                                        SectionId: section.Id, // ID para vincular la sección
-                                        SectionName: section.SectionName,
-                                        Tiles: tiles
-                                    });
-                                    resolve();
-                                }).catch(reject);
-                            });
+    
+                        // Para cada sección obtenida, agregarla al array
+                        oData.results.forEach(function (section) {
+                            var oSection = {
+                                Id: section.Id, // Guardar el ID para usarlo después
+                                SectionName: section.SectionName,
+                                Tiles: [] // Inicializamos el array de Tiles
+                            };
+    
+                            aSections.push(oSection);
                         });
-        
-                        // Esperamos a que todas las promesas de tiles terminen antes de actualizar el modelo
-                        Promise.all(oTilePromises).then(() => {
-                            var oSectionModel = new sap.ui.model.json.JSONModel({ Sections: aSections });
-                            this.getView().setModel(oSectionModel, "sectionModel");
-                        }).catch((err) => {
-                            console.error("Error al cargar las secciones y tiles:", err);
-                        });
+    
+                        // Asignar las secciones al modelo
+                        var oSectionModel = this.getView().getModel("sectionModel");
+                        oSectionModel.setProperty("/Sections", aSections);
+    
+                        // Ahora cargar los tiles de cada sección
+                        aSections.forEach(function (section) {
+                            this.loadTiles(section.Id);
+                        }, this);
                     }
                 }.bind(this),
                 error: function (oError) {
@@ -60,32 +107,43 @@ sap.ui.define([
                 }
             });
         },
-        
+    
         loadTiles: function (sectionId) {
-            return new Promise((resolve, reject) => {
-                var oModel = this.getView().getModel("mainService");
-        
-                if (!sectionId) {
-                    console.error("El Id de la sección no es válido");
-                    reject("ID de sección inválido");
-                    return;
-                }
-        
-                oModel.read("/SD_TILESSet", {
-                    filters: [
-                        new sap.ui.model.Filter("IdSection", sap.ui.model.FilterOperator.EQ, sectionId)
-                    ],
-                    success: function (oData) {
-                        resolve(oData.results || []);
-                    },
-                    error: function (oError) {
-                        console.error("Error al obtener los tiles:", oError);
-                        reject(oError);
+            var oModel = this.getView().getModel("mainService");
+    
+            if (!sectionId) {
+                console.error("El Id de la sección no es válido");
+                return;
+            }
+    
+            oModel.read("/SD_TILESSet", {
+                filters: [
+                    new sap.ui.model.Filter("IdSection", sap.ui.model.FilterOperator.EQ, sectionId)
+                ],
+                success: function (oData) {
+                    if (oData.results && oData.results.length > 0) {
+                        var oSectionModel = this.getView().getModel("sectionModel");
+                        var aSections = oSectionModel.getProperty("/Sections");
+    
+                        // Buscar la sección correspondiente
+                        var oSection = aSections.find(section => section.Id === sectionId);
+                        if (oSection) {
+                            // Asignar los tiles a la sección correcta
+                            oSection.Tiles = oData.results.map((tile, index) => ({
+                                ...tile,
+                                uniqueId: "tile" + sectionId + "_" + index
+                            }));
+    
+                            // Actualizar el modelo correctamente
+                            oSectionModel.setProperty("/Sections", aSections);
+                        }
                     }
-                });
+                }.bind(this),
+                error: function (oError) {
+                    console.error("Error al obtener los tiles:", oError);
+                }
             });
         },
-        
         
         
         
